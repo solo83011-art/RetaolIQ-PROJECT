@@ -3,9 +3,24 @@ from django.views import View
 
 # Create your views here.
 
-class LoginPage(View):
-    def get(self,request):
-        return render(request,'Login.html')
+# class LoginPage(View):
+#     def get(self,request):
+#         return render(request,'Login.html')
+#     def post(self,request):
+#         username1=request.POST['username']
+#         password1=request.POST['password']
+#         print(username1)
+#         prit(password1) 
+
+#         login_obj=LoginTable.objects.get(username=username1,password=password1)
+#         print("$$$$$$$$$$$$$$$$$$$",login_ibj)
+#         request.session['userid']=login_obj.id
+#         print(request.session['userid'])
+
+#         if login_obj.udertype=="shop":
+#             return HttpResponse(''')
+
+
 
 
 # //////////////////////////////////////////// ADMIN /////////////////////////////////////
