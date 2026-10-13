@@ -49,7 +49,7 @@ class StockTable(models.Model):
     Status = models.CharField(max_length=20, null=True, blank=True)
 
 
-class  CustomerTable(models.Model):
+class CustomerTable(models.Model):
     name = models.CharField(max_length=20, null=True, blank=True)
     phone = models.BigIntegerField(null=True, blank=True)
     email = models.CharField(max_length=20, null=True, blank=True)

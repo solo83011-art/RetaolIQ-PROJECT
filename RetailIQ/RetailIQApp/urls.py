@@ -14,16 +14,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from turtle import home
+
 from django.contrib import admin
 from django.urls import path
 
-from RetailIQApp.views import AddProducts, AddStaff, BlockOrUnblockShops, LoginPage, ManageDiscountaff, ManageNotifications, ManageOffers, ManageProducts, ManageStaff, OrdersAndBill, Register, ViewAndVerifyShops, ViewComplaintsAndReply, ViewCustomers, ViewDiscount, ViewLowStock, ViewNotification, ViewOffers, ViewOrders, ViewProducts, ViewRatingAndFeedback, ViewSales, ViewStockandUpdateStock
+from RetailIQApp.views import AddProducts, AddStaff, BlockOrUnblockShops, LoginPage, ManageDiscountaff, ManageNotifications, ManageOffers, ManageProducts, ManageStaff, OrdersAndBill, Register, ViewAndVerifyShops, ViewComplaintsAndReply, ViewCustomers, ViewDiscount, ViewLowStock, ViewNotification, ViewOffers, ViewOrders, ViewProducts, ViewRatingAndFeedback, ViewSales, ViewStockandUpdateStock, admin_home, shop_home, staff_home
 
 urlpatterns = [
     path('',LoginPage.as_view(),name='LoginPage'),
 
     # ////////////////////////////////////// ADMIN /////////////////////////////////////
-    
+    path('admin_home',admin_home.as_view(),name='admin_home'),
     path('BlockOrUnblockShops',BlockOrUnblockShops.as_view(),name='BlockOrUnblockShops'),
     path('ViewAndVerifyShops',ViewAndVerifyShops.as_view(),name='ViewAndVerifyShops'),
     path('ViewComplaintsAndReply',ViewComplaintsAndReply.as_view(),name='ViewComplaintsAndReply'),
@@ -31,7 +33,7 @@ urlpatterns = [
 
     # //////////////////////////////////// SHOP ////////////////////////////////////////
 
-
+    path('shop_home',shop_home.as_view(),name='shop_home'),
     path('AddProducts',AddProducts.as_view(),name='AddProducts'),
     path('AddStaff',AddStaff.as_view(),name='AddStaff'),
     path('ManageDiscount',ManageDiscountaff.as_view(),name='ManageDiscount'),
@@ -46,7 +48,7 @@ urlpatterns = [
     path('ViewStockandUpdateStock',ViewStockandUpdateStock.as_view(),name='ViewStockandUpdateStock'),
 
     #/////////////////////////////////// STAFF ////////////////////////////////////
-
+    path('staff_home',staff_home.as_view(),name='staff_home'),
     path('OrdersAndBill',OrdersAndBill.as_view(),name='OrdersAndBill'),
     path('ViewDiscount',ViewDiscount.as_view(),name='ViewDiscount'),
     path('ViewLowStock',ViewLowStock.as_view(),name='ViewLowStock'),

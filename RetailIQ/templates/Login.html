@@ -6,11 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <form>
+    <form method="POST">
+        {% csrf_token %}    
         <table>
             <tr>
                 <td><label>Username</label></td>
-                <td><input type="text" name="Username" placeholder="Enter username"></td>
+                <td><input type="text" name="username" placeholder="Enter username"></td>
             </tr>
             <tr>
                 <td><label>Password</label></td>
