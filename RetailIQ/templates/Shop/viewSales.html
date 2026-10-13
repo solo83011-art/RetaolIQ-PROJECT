@@ -16,15 +16,21 @@
             <th>Final amount</th>
             <th>date</th>
         </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+        {% for i in order_data %} 
+        {% for j in product_data %}  
+                    <tr>
+                        <td>{{ j.product_name }}</td>
+                        <td>{{ j.category }}</td>
+                        <td>{{ i.quantity }}</td>
+                        <td>{{ i.unit_price }}</td>
+                        <td>{{ i.discount_amoount }}</td>
+                        <td>{{ i.final_price }}</td>
+                        <td>{{ i.date_time }}</td>
+                    </tr>
+            {% endfor %}
+        {% endfor %}
+        
+
     </table>
 </body>
 </html>

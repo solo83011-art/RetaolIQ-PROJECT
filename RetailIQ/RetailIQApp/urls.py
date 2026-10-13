@@ -19,8 +19,7 @@ from turtle import home
 from django.contrib import admin
 from django.urls import path
 
-from RetailIQApp.views import AddProducts, AddStaff, BlockOrUnblockShops, LoginPage, ManageDiscountaff, ManageNotifications, ManageOffers, ManageProducts, ManageStaff, OrdersAndBill, Register, ViewAndVerifyShops, ViewComplaintsAndReply, ViewCustomers, ViewDiscount, ViewLowStock, ViewNotification, ViewOffers, ViewOrders, ViewProducts, ViewRatingAndFeedback, ViewSales, ViewStockandUpdateStock, admin_home, shop_home, staff_home
-
+from RetailIQApp.views import *
 urlpatterns = [
     path('',LoginPage.as_view(),name='LoginPage'),
 
@@ -36,7 +35,7 @@ urlpatterns = [
     path('shop_home',shop_home.as_view(),name='shop_home'),
     path('AddProducts',AddProducts.as_view(),name='AddProducts'),
     path('AddStaff',AddStaff.as_view(),name='AddStaff'),
-    path('ManageDiscount',ManageDiscountaff.as_view(),name='ManageDiscount'),
+    path('ManageDiscounts',ManageDiscounts.as_view(),name='ManageDiscounts'),
     path('ManageNotifications',ManageNotifications.as_view(),name='ManageNotifications'),
     path('ManageOffers',ManageOffers.as_view(),name='ManageOffers'),
     path('ManageProducts',ManageProducts.as_view(),name='ManageProducts'),
@@ -46,6 +45,7 @@ urlpatterns = [
     path('ViewOrders',ViewOrders.as_view(),name='ViewOrders'),
     path('ViewSales',ViewSales.as_view(),name='ViewSales'),
     path('ViewStockandUpdateStock',ViewStockandUpdateStock.as_view(),name='ViewStockandUpdateStock'),
+    path('RatingAndFeedback',RatingAndFeedback.as_view(),name='ratingAndFeedback'),
 
     #/////////////////////////////////// STAFF ////////////////////////////////////
     path('staff_home',staff_home.as_view(),name='staff_home'),

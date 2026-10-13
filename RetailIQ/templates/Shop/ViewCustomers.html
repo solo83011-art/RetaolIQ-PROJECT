@@ -15,13 +15,15 @@
             <th>Action</th>
             
         </tr>
+        {% for i in customer_data %}
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{ i.name }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.phone }}</td>
+            <td>{{ i.Address }}</td>
             <td><button>Edit</button> <button>Remove</button></td>
         </tr>
+        {% endfor %}
     </table>
 </body>
 </html>

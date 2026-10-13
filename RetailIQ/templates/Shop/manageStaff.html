@@ -13,22 +13,22 @@
             <th>phone</th>
             <th>Email</th>
             <th>Designation & Assigned counter</th>
-            <th>Active Status</th>
             <th>action</th>
         </tr>
+        {% for i in staff_data %}
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{ i.Staff_code }}</td>
+            <td>{{ i.name }}</td>
+            <td>{{ i.phone }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.Designation }} & {{ i.Assigned_Counter }}</td>
             <td>
                 
                 <button type="submit">Edit/Delete</button>
             </td>
             
         </tr>
+        {% endfor %}
     </table>
 </body>
 </html>

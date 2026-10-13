@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
 
-from RetailIQApp.models import LoginTable
+from RetailIQApp.models import *
 
 # Create your views here.
 
@@ -43,19 +43,23 @@ class admin_home(View):
     
 class BlockOrUnblockShops(View):
     def get(self,request):
-        return render(request,'admin/BlockOrUnblockShops.html')
+        obj = ShopTable.objects.all()
+        return render(request,'admin/BlockOrUnblockShops.html', {'shop_data':obj})
 
 class ViewAndVerifyShops(View):
     def get(self,request):
-        return render(request,'admin/ViewAndVerifyShops.html')
+        obj = ShopTable.objects.all()
+        return render(request,'admin/ViewAndVerifyShops.html', {'shop_data':obj})
 
 class ViewComplaintsAndReply(View):
     def get(self,request):
-        return render(request,'admin/ViewComplaintsAndReply.html')
+        obj = ComplaintTable.objects.all()
+        return render(request,'admin/ViewComplaintsAndReply.html', {'complaint_data':obj})
     
 class ViewRatingAndFeedback(View):
     def get(self,request):
-        return render(request,'admin/ViewRatingAndFeedback.html')   
+        obj = FeedbackTable.objects.all()
+        return render(request,'admin/ViewRatingAndFeedback.html', {'feedback_data':obj})   
   
     #///////////////////////////// SHOP //////////////////////////////////
 
@@ -65,31 +69,35 @@ class shop_home(View):
 
 class AddProducts(View):
     def get(self,request):
-        return render(request,'shop/AddProducts.html')   
+        return render(request,'shop/AddProducts.html',)   
 
 class AddStaff(View):
     def get(self,request):
         return render(request,'shop/AddStaff.html')   
 
-class ManageDiscountaff(View):
+class ManageDiscounts(View):
     def get(self,request):
-        return render(request,'shop/ManageDiscountaff.html') 
+        obj = DiscountTable.objects.all()
+        return render(request,'shop/manageDiscounts.html', {'discount_data':obj})
 
 class ManageNotifications(View):
     def get(self,request):
-        return render(request,'shop/ManageNotifications.html') 
+        return render(request,'shop/ManageNotifications.html',)
 
 class ManageOffers(View):
     def get(self,request):
-        return render(request,'shop/ManageOffers.html') 
+        obj = OfferTable.objects.all()
+        return render(request,'shop/ManageOffers.html', {'offer_data':obj})
 
 class ManageProducts(View):
     def get(self,request):
-        return render(request,'shop/ManageProducts.html') 
+        obj = Product_Table.objects.all()
+        return render(request,'shop/ManageProducts.html', {'product_data':obj}) 
 
 class ManageStaff(View):
     def get(self,request):
-        return render(request,'shop/ManageStaff.html') 
+        obj = StaffTable.objects.all()
+        return render(request,'shop/ManageStaff.html', {'staff_data':obj}) 
 
 class Register(View):
     def get(self,request):
@@ -97,20 +105,25 @@ class Register(View):
 
 class ViewCustomers(View):
     def get(self,request):
-        return render(request,'shop/ViewCustomers.html') 
+        obj = CustomerTable.objects.all()
+        return render(request,'shop/ViewCustomers.html', {'customer_data':obj})
+    
 
-class ViewOrders(View):
-    def get(self,request):
-        return render(request,'shop/ViewOrders.html') 
 
 class ViewSales(View):
     def get(self,request):
-        return render(request,'shop/ViewSales.html') 
+        obj1 = OrderTable.objects.all()
+        obj2 = Product_Table.objects.all()
+        return render(request,'shop/ViewSales.html', {'order_data':obj1, 'product_data':obj2}) 
 
 class ViewStockandUpdateStock(View):
     def get(self,request):
         return render(request,'shop/ViewStockandUpdateStock.html') 
 
+class RatingAndFeedback(View):
+    def get(self,request):
+        return render(request,'shop/RatingAndFeedback.html')
+    
 #////////////////////////////// STAFF /////////////////////////////////////
 
 class staff_home(View):
@@ -139,7 +152,9 @@ class ViewOffers(View):
 
 class ViewOrders(View):
     def get(self,request):
-        return render(request,'staff/ViewOrders.html') 
+        obj = OrderTable.objects.all()
+        return render(request,'shop/viewOrders.html', {'order_data':obj})
+    # viewOrders is common for both shop and staff, so we can use the same view for both.
 
 class ViewProducts(View):
     def get(self,request):
